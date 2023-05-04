@@ -3,7 +3,7 @@ extern crate mongodb;
 use mongodb::{bson::doc, options::{ClientOptions, ServerApi, ServerApiVersion}, Client};
 
 pub mod database {
-    #[tokio::main]
+    #[tokio::connect]
     async fn connect() -> mongodb::error::Result<()> {
         let mut client_options =
             ClientOptions::parse("mongodb+srv://patrykstruzek17:<password>@cluster1.r40ouml.mongodb.net/?retryWrites=true&w=majority")
