@@ -1,12 +1,16 @@
-use mongodb::{bson::doc, options::{ClientOptions, ServerApi, ServerApiVersion}, Client};
-use serde;
 pub mod database {
+    use mongodb::{
+        bson,
+        bson::doc,
+        options::{ClientOptions, ServerApi, ServerApiVersion},
+        Client,
+    };
+    use crate::user::User;
 
-    #[tokio::connect]
-    async fn connect() -> mongodb::error::Result<()> {
+    #[tokio::main]
+    pub async fn connect() -> mongodb::error::Result<()> {
         let mut client_options =
-            ClientOptions::parse("mongodb+srv://patrykstruzek17:<password>@cluster1.r40ouml.mongodb.net/?retryWrites=true&w=majority")
-            .await?;
+            ClientOptions::parse("mongodb+srv://patrykstruzek17:<password>@cluster1.r40ouml.mongodb.net/?retryWrites=true&w=majority")?;
         // Set the server_api field of the client_options object to Stable API version 1
         let server_api = ServerApi::builder().version(ServerApiVersion::V1).build();
         client_options.server_api = Some(server_api);
@@ -21,7 +25,7 @@ pub mod database {
         Ok(())
     }
 
-    async fn insert_user(client: &Client, user: User) -> mongodb::error::Result<()> {
+    pub async fn insert_user(client: &Client, user: User) -> mongodb::error::Result<()> {
         let coll = client.database("Users").collection("users");
 
         let user_bson = bson::to_bson(&user).unwrap();

@@ -1,8 +1,7 @@
-mod database;
-mod input;
-mod user;
+mod simple_app;
 
-
-fn main() {
-    
+#[tokio::main]
+async fn main() -> mongodb::error::Result<()> {
+    simple_app::run().await?;
+    Ok(())
 }
