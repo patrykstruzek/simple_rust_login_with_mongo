@@ -1,8 +1,6 @@
-pub mod user {
-    struct User {
-        id: u8,
-        name: String,
-        email: String,
-        password: String
+    pub struct User {
+        pub id: u8,
+        pub name: String,
+        pub email: String,
+        pub password: String
     }
-}

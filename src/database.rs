@@ -1,8 +1,7 @@
-use user;
-extern crate mongodb;
 use mongodb::{bson::doc, options::{ClientOptions, ServerApi, ServerApiVersion}, Client};
-
+use serde;
 pub mod database {
+
     #[tokio::connect]
     async fn connect() -> mongodb::error::Result<()> {
         let mut client_options =
@@ -19,6 +18,18 @@ pub mod database {
             .run_command(doc! {"ping": 1}, None)
             .await?;
         println!("Pinged your deployment. You successfully connected to MongoDB!");
+        Ok(())
+    }
+
+    async fn insert_user(client: &Client, user: User) -> mongodb::error::Result<()> {
+        let coll = client.database("Users").collection("users");
+
+        let user_bson = bson::to_bson(&user).unwrap();
+
+        if let bson::Bson::Document(document) = user_bson {
+            coll.insert_one(document, None).await?;
+        }
+        println!("Successfully added user!");
         Ok(())
     }
 }
