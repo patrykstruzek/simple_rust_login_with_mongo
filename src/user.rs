@@ -8,7 +8,7 @@ pub struct User {
 }
 
 impl User {
-    fn create_user() -> User {
+    pub fn create_user() -> User {
         let mut new_user = User {
             name: String::new(),
             email: String::new(),

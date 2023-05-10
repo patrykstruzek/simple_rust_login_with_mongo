@@ -3,7 +3,7 @@ pub mod input {
     use regex::Regex;
     use std::io;
 
-    pub impl User {
+    impl User {
         pub fn name_input(&mut self) -> String {
             match io::stdin().read_line(&mut self.name) {
                 Ok(_) => (),

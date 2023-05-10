@@ -1,7 +1,13 @@
-mod simple_app;
+mod app;
+mod database;
+mod input;
+mod user;
+
+use crate::app::app::run;
+
 
 #[tokio::main]
 async fn main() -> mongodb::error::Result<()> {
-    simple_app::run().await?;
+    run()?;
     Ok(())
 }
