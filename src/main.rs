@@ -5,9 +5,8 @@ mod user;
 
 use crate::app::run;
 
-
 #[tokio::main]
 async fn main() -> mongodb::error::Result<()> {
-    run()?;
+    run().await?;
     Ok(())
 }

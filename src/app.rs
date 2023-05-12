@@ -1,9 +1,9 @@
 use crate::database;
 use crate::user::User;
 
-#[tokio::main]
-pub async fn run() -> mongodb::error::Result<()> {
-    let client = database::connect()?;
-    database::insert_user(&client, User::create_user())?;
+
+pub async fn run() -> Result<(), mongodb::error::Error> {
+    let client = database::connect().await?;
+    database::insert_user(&client, User::create_user()).await?;
     Ok(())
 }

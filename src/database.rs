@@ -6,7 +6,7 @@ use mongodb::{
     Client,
 };
 
-#[tokio::main]
+
 pub async fn connect() -> mongodb::error::Result<Client> {
     let mut client_options =
             ClientOptions::parse("mongodb+srv://patrykstruzek17:<password>@cluster1.r40ouml.mongodb.net/?retryWrites=true&w=majority")?;
@@ -20,7 +20,7 @@ pub async fn connect() -> mongodb::error::Result<Client> {
     println!("Pinged your deployment. You successfully connected to MongoDB!");
     Ok(client)
 }
-#[tokio::main]
+
 pub async fn insert_user(client: &Client, user: User) -> mongodb::error::Result<()> {
     let coll = client.database("Users").collection("users");
 
