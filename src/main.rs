@@ -3,7 +3,7 @@ mod database;
 mod input;
 mod user;
 
-use crate::app::app::run;
+use crate::app::run;
 
 
 #[tokio::main]
