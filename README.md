@@ -1,6 +1,6 @@
 # simple_rust_login_with_mongo
 
-[![Version](https://img.shields.io/badge/work-in-progress-yellow.svg)]
+[![Version](https://img.shields.io/badge/work-inprogress-yellow.svg)]
 [![Version](https://img.shields.io/badge/version-0.0.1-blue.svg)]
 [![Build Status](https://img.shields.io/badge/build-failing-red.svg)]
 
