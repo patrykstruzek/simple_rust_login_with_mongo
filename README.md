@@ -1,4 +1,4 @@
-# simple_rust_login_with_mongo
+# simple_login_app
 
 ![Version](https://img.shields.io/badge/work-in_progress-yellow.svg)
 ![Version](https://img.shields.io/badge/version-0.0.1-blue.svg)
